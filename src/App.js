@@ -1,24 +1,39 @@
-import logo from './logo.svg';
 import './App.css';
+import React from "react";
+import AppRouter from "./routes/AppRouter";
+import {createMuiTheme} from "@material-ui/core";
+import {ThemeProvider} from "styled-components";
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+const theme= createMuiTheme({
+      palette:{
+        principal: "#24282C",
+        secundario: "#F3C933",
+        complementario: "#333F42",
+        oscuro:"#333742",
+        claro:"#ffffff",
+        gris:"#C4C4C4"
+      },
+      rutas:{
+        recorrido:"#fff100" ,
+        noRecorrido:"#4d5fbd70"
+      },
+      typography:{
+        fontFamily: {
+          montserrat: "'Montserrat', sans-serif",
+          nunito: "'Nunito', sans-serif",
+          roboto: "'Roboto', sans-serif",
+        }
+      }
+})
+
+toast.configure()
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme} >
+      <AppRouter/>
+    </ThemeProvider>
   );
 }
 
