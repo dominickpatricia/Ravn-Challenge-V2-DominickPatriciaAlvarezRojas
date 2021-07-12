@@ -16,7 +16,7 @@ const AppRouter =() =>{
           <Redirect to="/people" />
         </Route>
         <Route path="/people" component={PeopleLoading} />
-        <Route path="/detalle/:codigo" component={PeopleDetail}/>
+        <Route path="/detalle/:id" component={PeopleDetail}/>
       </Switch>
     </BrowserRouter>
   )

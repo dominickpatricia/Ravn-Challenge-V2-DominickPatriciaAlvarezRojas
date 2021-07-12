@@ -1,6 +1,7 @@
 import React from "react";
 import ButtonStyle from "../layaout/ButtonStyle";
 import {useHistory} from "react-router";
+import Loader from "../layaout/Loader";
 import {TableCellCustom, TableCellCustom2, TableContainerCustom, TableRowCustom} from "../layaout/Tablas";
 import {
   Table,
@@ -17,14 +18,14 @@ import {
     gql
 } from "@apollo/client";
   
-  const client = new ApolloClient({
+const client = new ApolloClient({
     uri: "https://swapi-graphql.netlify.app/.netlify/functions/index",
     cache: new InMemoryCache()
-  });
+});
   
-  const GET_PEOPLE = gql` { allPeople{ people { id name } } }`;
+const GET_PEOPLE = gql` { allPeople{ people { id name } } }`;
   
-  export const TablePeople = ({ onPeopleSelected }) =>  {
+export const TablePeople = ({ onPeopleSelected }) =>  {
     const history=useHistory();
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
@@ -43,7 +44,7 @@ import {
     };
     
     console.log(onPeopleSelected);
-    if (loading) return "Loading...";
+    if (loading) return <Loader/>;
     if (error) return `Error! ${error.message}`;
     
     const irADetalle = (codigo) => {
@@ -100,5 +101,5 @@ import {
             }
         </React.Fragment>
     );
-  }
-  export default TablePeople;
+}
+export default TablePeople;
