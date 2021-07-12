@@ -5,6 +5,7 @@ import { Grid, Divider, Card} from "@material-ui/core";
 import styled from "styled-components";
 import Loader from "../layaout/Loader";
 import Back from "../icons/backWhite.png"
+import User from "../icons/user.png"
 import {
   ApolloClient,
   InMemoryCache,
@@ -33,11 +34,18 @@ const CustomSpanSubtitle=styled.span`
   font-family: ${(props) => props.theme.typography.fontFamily.Helvetica};
   font-size: 28px;
   font-weight: bolder;
+  color: rgb(120,137,205);
 `;
 const CustomSpanInformation=styled.span`
   font-family: ${(props) => props.theme.typography.fontFamily.Helvetica};
   font-size: 20px;
   font-weight: lighter;
+`;
+const IconCustom=styled.img`
+  max-height: 35px;
+  max-width: 35px;
+  margin-right: 20px;
+  padding-left: 15px;
 `;
 function PersonalInformation({ id }) {
   console.log("id enviado",id);
@@ -159,6 +167,7 @@ export const PeopleDetail =() =>{
           textAlign: "center",display:"flex",justifyContent:"center", alignItems:"center", paddingTop:"5%"
         }}>
           <CustomSpanSubtitle> Personal Information </CustomSpanSubtitle>
+          <IconCustom src={User}/>
       </Grid>
       <Grid item xs={9}></Grid>
       <Grid item xs={3} style = {{ height: "50px",
@@ -167,7 +176,7 @@ export const PeopleDetail =() =>{
           <ButtonStyle icon={Back} text={"Volver"} onClick={()=>irPaginaInicio()}/>
       </Grid>
       <Grid item xs={12} style = {{height: "50px",
-          textAlign: "center",display:"flex",justifyContent:"center", alignItems:"center", paddingTop:"100px"
+          textAlign: "center",display:"flex",justifyContent:"center", alignItems:"center", paddingTop:"10%"
         }}>
           <ApolloProvider client={client}>
             <PersonalInformation id={id} />

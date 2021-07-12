@@ -14,6 +14,7 @@ const SpanStyled=styled.span`
   align-self: center;
   font-weight: bold;
   font-size: 25px;
+  padding-left:10%;
 `;
 
 const ImgStyled=styled.img`
