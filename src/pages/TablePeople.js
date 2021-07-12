@@ -2,6 +2,8 @@ import React from "react";
 import ButtonStyle from "../layaout/ButtonStyle";
 import {useHistory} from "react-router";
 import Loader from "../layaout/Loader";
+import See from "../icons/visibilityWhite.png";
+import styled from "styled-components";
 import {TableCellCustom, TableCellCustom2, TableContainerCustom, TableRowCustom} from "../layaout/Tablas";
 import {
   Table,
@@ -13,7 +15,6 @@ import {
 import {
     ApolloClient,
     InMemoryCache,
-    ApolloProvider,
     useQuery,
     gql
 } from "@apollo/client";
@@ -24,7 +25,11 @@ const client = new ApolloClient({
 });
   
 const GET_PEOPLE = gql` { allPeople{ people { id name } } }`;
-  
+const CustomSpanTitleTable=styled.span`
+  font-family: ${(props) => props.theme.typography.fontFamily.Helvetica};
+  font-size: 22px;
+  font-weight: bolder;
+`;
 export const TablePeople = ({ onPeopleSelected }) =>  {
     const history=useHistory();
     const [page, setPage] = React.useState(0);
@@ -59,8 +64,8 @@ export const TablePeople = ({ onPeopleSelected }) =>  {
         <Table>
             <TableHead>
             <TableRow>
-                <TableCellCustom align="center">Usuario</TableCellCustom>
-                <TableCellCustom align="center">Detalle</TableCellCustom>
+                <TableCellCustom align="center"> <CustomSpanTitleTable> User </CustomSpanTitleTable> </TableCellCustom>
+                <TableCellCustom align="center"><CustomSpanTitleTable> Details </CustomSpanTitleTable> </TableCellCustom>
             </TableRow>
             </TableHead>
             <TableBody>
@@ -71,7 +76,7 @@ export const TablePeople = ({ onPeopleSelected }) =>  {
                     <TableCellCustom2  align="center" component="th" scope="row">
                         {person.name}
                     </TableCellCustom2>
-                    <TableCellCustom2 align="center"><ButtonStyle text={"Ver"} onClick={()=>irADetalle(person.id)}/></TableCellCustom2>
+                    <TableCellCustom2 align="center"><ButtonStyle icon={See}  text={"Ver"} onClick={()=>irADetalle(person.id)}/></TableCellCustom2>
                 </TableRowCustom>
             ))}
             {emptyRows > 0 && (
@@ -81,9 +86,9 @@ export const TablePeople = ({ onPeopleSelected }) =>  {
              )}
             </TableBody>
             <TablePagination
-            rowsPerPageOptions={[5,10]}
+            rowsPerPageOptions={[5]}
             colSpan={3}
-            count={data?.data?.pedidos.length}
+            count={data?.allPeople?.people.length}
             rowsPerPage={rowsPerPage}
             page={page}
             SelectProps={{

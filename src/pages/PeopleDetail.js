@@ -1,9 +1,10 @@
 
 import {useHistory, useParams} from "react-router";
 import ButtonStyle from "../layaout/ButtonStyle";
-import { Button, Grid, Divider, Card} from "@material-ui/core";
+import { Grid, Divider, Card} from "@material-ui/core";
 import styled from "styled-components";
 import Loader from "../layaout/Loader";
+import Back from "../icons/backWhite.png"
 import {
   ApolloClient,
   InMemoryCache,
@@ -24,9 +25,19 @@ const GET_PEOPLE_BY_ID = gql`
   }}}
 `;
 const CustomSpan=styled.span`
-  font-family: ${(props) => props.theme.typography.fontFamily.nunito};
+  font-family: ${(props) => props.theme.typography.fontFamily.Helvetica};
   font-size: 20px;
   font-weight: bolder;
+`;
+const CustomSpanSubtitle=styled.span`
+  font-family: ${(props) => props.theme.typography.fontFamily.Helvetica};
+  font-size: 28px;
+  font-weight: bolder;
+`;
+const CustomSpanInformation=styled.span`
+  font-family: ${(props) => props.theme.typography.fontFamily.Helvetica};
+  font-size: 20px;
+  font-weight: lighter;
 `;
 function PersonalInformation({ id }) {
   console.log("id enviado",id);
@@ -45,22 +56,89 @@ function PersonalInformation({ id }) {
   return (
     <div style={{padding:"10% 16% 0 16%"}}>
     {!loading?
-      <Grid container direction="row" justify="flex-start" alignItems="center" >
-        <Card style={{ marginTop:"20px", marginBottom:"20px", width:"100%"}}>
-         
-            <Grid item xs={1}/>
-          <Grid item xs={5} style={{ marginLeft: "30px", marginTop:"20px", marginBottom:"20px"}} >
-            <CustomSpan  >Calles</CustomSpan>
-            <h1> 
+      <Grid container direction="row" justify="flex-start" >
+        <Card style={{ marginTop:"30%", marginBottom:"20px", width:"800px"}}>
+          <Grid item xs={6} style={{ paddingLeft:"5%" ,marginTop:"3%", display:"flex"}} >
+            <CustomSpan  >Name:</CustomSpan>
+          </Grid>
+          <Grid item xs={6}></Grid>
+          <Grid item xs={12} style={{paddingLeft:"5%",display:"flex"}} >
+            <CustomSpanInformation> 
               {data.person.name} 
-            </h1> 
+            </CustomSpanInformation> 
           </Grid>
-          <Grid item xs={5} style={{marginLeft: "25px", marginRight: "20px", marginTop:"20px", marginBottom:"20px"}}>
-            <CustomSpan>Pedidos</CustomSpan>
-            <button onClick={() => refetch()}>Refetch!</button>
+          <Grid item xs={12} style={{marginTop: "1%"}} >
+            <Divider/>
           </Grid>
-            <Grid item xs={1}/>
-          
+          <Grid item xs={6} style={{ paddingLeft:"5%" ,marginTop:"3%",  display:"flex"}} >
+            <CustomSpan  >Gender:</CustomSpan>
+          </Grid>
+          <Grid item xs={6}></Grid>
+          <Grid item xs={12}  style={{paddingLeft:"5%", display:"flex"}} >
+            <CustomSpanInformation> 
+              {data.person.gender} 
+            </CustomSpanInformation> 
+          </Grid>
+          <Grid item xs={12} style={{marginTop: "1%"}} >
+            <Divider/>
+          </Grid>
+          <Grid item xs={12} style={{  marginTop:"3%",  display:"flex"}} >
+            <CustomSpan style={{ paddingLeft:"5%"}} >HomeWorld:</CustomSpan>
+            <CustomSpan style={{ paddingLeft:"22%"}} >Gravity:</CustomSpan>
+          </Grid>
+
+          <Grid item xs={12}  style={{display:"flex"}} >
+            <CustomSpanInformation style={{ paddingLeft:"5%"}} > {data.person.homeworld.name} </CustomSpanInformation>
+            <CustomSpanInformation style={{ paddingLeft:"29%"}} > {data.person.homeworld.gravity} </CustomSpanInformation>
+          </Grid>
+
+          <Grid item xs={12} style={{marginTop: "1%"}} >
+            <Divider/>
+          </Grid>
+          <Grid item xs={12} style={{  marginTop:"3%",  display:"flex"}} >
+            <CustomSpan style={{ paddingLeft:"5%"}} >Height :</CustomSpan>
+            <CustomSpan style={{ paddingLeft:"27%"}} >Mass:</CustomSpan>
+          </Grid>
+
+          <Grid item xs={12}  style={{display:"flex"}} >
+            <CustomSpanInformation style={{ paddingLeft:"5%"}} > {data.person.height} </CustomSpanInformation>
+            <CustomSpanInformation style={{ paddingLeft:"34%"}} > {data.person.mass} </CustomSpanInformation>
+          </Grid>
+
+          <Grid item xs={12} style={{marginTop: "1%"}} >
+            <Divider/>
+          </Grid>
+
+          <Grid item xs={12} style={{  marginTop:"3%",  display:"flex"}} >
+            <CustomSpan style={{ paddingLeft:"5%"}} >EyeColor:</CustomSpan>
+            <CustomSpan style={{ paddingLeft:"25%"}} >HairColor:</CustomSpan>
+            <CustomSpan  style={{ paddingLeft:"25%"}}  >SkinColor:</CustomSpan>
+          </Grid>
+
+          <Grid item xs={12}  style={{ display:"flex"}} >
+            <CustomSpanInformation style={{ paddingLeft:"5%"}} > {data.person.eyeColor} </CustomSpanInformation>
+            <CustomSpanInformation style={{ paddingLeft:"32%"}} > {data.person.hairColor} </CustomSpanInformation>
+            <CustomSpanInformation  style={{ paddingLeft:"31%"}} > {data.person.skinColor} </CustomSpanInformation>
+          </Grid>
+
+          <Grid item xs={12} style={{marginTop: "1%"}} >
+            <Divider/>
+          </Grid>
+          <Grid item xs={6} style={{ paddingLeft:"5%" ,marginTop:"3%",  display:"flex"}} >
+            <CustomSpan  >Birth Year:</CustomSpan>
+          </Grid>
+          <Grid item xs={6}></Grid>
+          <Grid item xs={12}  style={{paddingLeft:"5%", display:"flex"}} >
+            <CustomSpanInformation> 
+              {data.person.birthYear} 
+            </CustomSpanInformation> 
+          </Grid>
+          <Grid item xs={12} style={{marginTop: "1%"}} >
+            <Divider/>
+          </Grid>
+          <Grid item xs={12} style={{}} >
+            <Divider/>
+          </Grid>
         </Card>
       </Grid>
     :<Loader/>
@@ -78,15 +156,15 @@ export const PeopleDetail =() =>{
   return(
     <Grid container direction="row" justify="flex-start" alignItems="center">
       <Grid item xs={12} style = {{height: "50px",
-          textAlign: "center",display:"flex",justifyContent:"center", alignItems:"center"
+          textAlign: "center",display:"flex",justifyContent:"center", alignItems:"center", paddingTop:"5%"
         }}>
-          <h1> Información Persona </h1>
+          <CustomSpanSubtitle> Personal Information </CustomSpanSubtitle>
       </Grid>
       <Grid item xs={9}></Grid>
       <Grid item xs={3} style = {{ height: "50px",
           textAlign: "center",display:"flex",justifyContent:"center", alignItems:"center"
         }}>
-          <ButtonStyle text={"Volver"} onClick={()=>irPaginaInicio()}/>
+          <ButtonStyle icon={Back} text={"Volver"} onClick={()=>irPaginaInicio()}/>
       </Grid>
       <Grid item xs={12} style = {{height: "50px",
           textAlign: "center",display:"flex",justifyContent:"center", alignItems:"center", paddingTop:"100px"

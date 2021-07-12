@@ -3,14 +3,15 @@ import styled from "styled-components";
 import {Button} from "@material-ui/core";
 
 const ButtonCustom=styled(Button)`
-  background: ${(props => props.theme.palette.secundario)} !important;
+  background: rgb(120,137,205) !important;
   border: 1px solid ${(props => props.theme.palette.oscuro)} !important;
+  border-color: rgb(120,137,205)!important; //rgb(205,218,229)
   border-radius: 2px !important;
-  box-shadow: 0 3px 5px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%) !important;
+  box-shadow: 0 3px 5px -2px rgb(0 0 0 / 30%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%) !important;
 `;
 
 const SpanCustom=styled.span`
-  color: ${(props => props.theme.palette.principal)};
+  color: ${(props => props.theme.palette.claro)};
   font-family: ${(props => props.theme.typography.fontFamily.nunito)};
   font-weight: bolder;
 `;
