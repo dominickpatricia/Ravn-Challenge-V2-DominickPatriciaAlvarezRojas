@@ -1,11 +1,10 @@
 
 import {useHistory, useParams} from "react-router";
-import ButtonStyle from "../layaout/ButtonStyle";
 import { Grid, Divider, Card} from "@material-ui/core";
 import styled from "styled-components";
 import Loader from "../layaout/Loader";
-import Back from "../icons/backWhite.png"
-import User from "../icons/user.png"
+import ContainerLayout from "../layaout/Container";
+import React, {useEffect,useState} from "react"
 import {
   ApolloClient,
   InMemoryCache,
@@ -62,10 +61,8 @@ function PersonalInformation({ id }) {
   if (error) return `Error!: ${error}`;
   
   return (
-    <div style={{padding:"10% 16% 0 16%"}}>
-    {!loading?
+ 
       <Grid container direction="row" justify="flex-start" >
-        <Card style={{ marginTop:"30%", marginBottom:"20px", width:"800px"}}>
           <Grid item xs={6} style={{ paddingLeft:"5%" ,marginTop:"3%", display:"flex"}} >
             <CustomSpan  >Name:</CustomSpan>
           </Grid>
@@ -147,11 +144,8 @@ function PersonalInformation({ id }) {
           <Grid item xs={12} style={{}} >
             <Divider/>
           </Grid>
-        </Card>
       </Grid>
-    :<Loader/>
-    }
-    </div>
+
   );
 }
 
@@ -162,27 +156,11 @@ export const PeopleDetail =() =>{
       history.push(`/people`)
     }
   return(
-    <Grid container direction="row" justify="flex-start" alignItems="center">
-      <Grid item xs={12} style = {{height: "50px",
-          textAlign: "center",display:"flex",justifyContent:"center", alignItems:"center", paddingTop:"5%"
-        }}>
-          <CustomSpanSubtitle> Personal Information </CustomSpanSubtitle>
-          <IconCustom src={User}/>
-      </Grid>
-      <Grid item xs={9}></Grid>
-      <Grid item xs={3} style = {{ height: "50px",
-          textAlign: "center",display:"flex",justifyContent:"center", alignItems:"center"
-        }}>
-          <ButtonStyle icon={Back} text={"Volver"} onClick={()=>irPaginaInicio()}/>
-      </Grid>
-      <Grid item xs={12} style = {{height: "50px",
-          textAlign: "center",display:"flex",justifyContent:"center", alignItems:"center", paddingTop:"10%"
-        }}>
+    <ContainerLayout text={""}>
           <ApolloProvider client={client}>
             <PersonalInformation id={id} />
           </ApolloProvider>
-      </Grid>
-    </Grid>
+    </ContainerLayout>
   )
 }
 export default PeopleDetail;

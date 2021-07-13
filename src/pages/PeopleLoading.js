@@ -3,6 +3,7 @@ import { render } from "react-dom";
 import TablePeople from "./TablePeople";
 import { Grid, Divider, Card} from "@material-ui/core";
 import styled from "styled-components";
+import DropdownContainer from "../layaout/DropdownContainer"
 import {
   ApolloClient,
   InMemoryCache,
@@ -25,17 +26,14 @@ export const PeopleLoading = () => {
     setSelectedPeople(target.value);
   }
   return (
-    <Grid container direction="row" justify="flex-start" >
-      <ApolloProvider client={client}>
-        <Grid item xs={12} style={{ paddingLeft:"40%" ,marginTop:"3%", display:"flex"}} >
-          <CustomSpanTitle>Welcome to Star Wars!  </CustomSpanTitle>
-        </Grid>
-        <Grid item xs={12} style={{ paddingLeft:"5%",paddingRight:"5%", marginTop:"1%", marginBottom:"3%", display:"flex"}} >
-        <TablePeople onPeopleSelected={onPeopleSelected}/>
-        </Grid>
-        <Grid item xs={6}></Grid>
-      </ApolloProvider>
-    </Grid>
+
+    <React.Fragment>
+        <DropdownContainer>
+        <ApolloProvider client={client}>
+          <TablePeople onPeopleSelected={onPeopleSelected}/>
+          </ApolloProvider>
+        </DropdownContainer>
+    </React.Fragment>
   );
 }
 export default PeopleLoading;
