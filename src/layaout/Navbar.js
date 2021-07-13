@@ -12,9 +12,9 @@ const SpanStyled=styled.span`
   color: ${(props) => props.theme.palette.claro} ;
   font-family: ${(props) => props.theme.typography.fontFamily.montserrat};
   align-self: center;
-  font-weight: bold;
-  font-size: 25px;
-  padding-left:10%;
+  font-weight: normal;
+  font-size: 18px;
+  padding-left:5%;
 `;
 
 const ImgStyled=styled.img`
@@ -28,7 +28,7 @@ const Navbar =()=>{
 
   return(
     <NavbarStyled>
-      <SpanStyled>STAR WARS</SpanStyled>
+      <SpanStyled>Ravn Start Wars Registry</SpanStyled>
     </NavbarStyled>
   )
 

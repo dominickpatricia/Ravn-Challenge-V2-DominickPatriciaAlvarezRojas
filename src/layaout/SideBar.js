@@ -9,7 +9,7 @@ import {
 } from "@apollo/client";
 
 const SidebarContainer=styled.div`
-  background: ${(props) => props.theme.palette.principal};
+  background: ${(props) => props.theme.palette.claro};
   padding: 20px;
   min-width: 280px;
   max-width: 280px;
