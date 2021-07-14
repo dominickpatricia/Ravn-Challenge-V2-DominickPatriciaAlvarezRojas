@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-const DropdownContainer = ({children}) => {
+const ListContainer = ({children}) => {
 
   const [selected, setSelected] = useState(null)
 
@@ -13,4 +13,4 @@ const DropdownContainer = ({children}) => {
   })
 }
 
-export default DropdownContainer
+export default ListContainer

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {CircularProgress} from "@material-ui/core";
+import {CustomSpanLight} from "../layaout/Styles"
 import React from "react";
-
 
 const LoaderContainer=styled.div`
   display: flex;
@@ -15,7 +15,8 @@ const LoaderContainer=styled.div`
 const Loader=()=>{
   return(
     <LoaderContainer>
-      <CircularProgress/>
+      <CircularProgress/> 
+      <CustomSpanLight>Loading </CustomSpanLight>
     </LoaderContainer>
   )
 }

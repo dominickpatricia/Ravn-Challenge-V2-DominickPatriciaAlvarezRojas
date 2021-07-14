@@ -1,48 +1,25 @@
 import React from "react";
 import styled from "styled-components";
 
-
 const Container=styled.div`
   position: absolute;
     left: 450px;
     top: 52px;
-    //width:600px;
+    width:890px;
 `;
-
 const ContentContainer=styled.div`
-
-  ::-webkit-scrollbar {
-    width: 10px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: ${(props) => props.theme.palette.claro};
-  }
-
-  ::-webkit-scrollbar-thumb {
-    border-radius: 7px;
-    background: ${(props) => props.theme.palette.complementario};
-  }
-
-  /*::-webkit-scrollbar-thumb:hover {
-    //background: ${(props) => props.theme.palette.secundario};
-  }*/
-  //padding: 0px 50px 35px 50px;
-  //padding-left: 50px;
- // height: calc(91vh - 70px - 35px);
   overflow: auto;
+  width:890px;
+  height:890px;
 `;
 
 const ContainerLayout=({text,children})=>{
-
   return(
     <Container>
       <ContentContainer>
         {children}
       </ContentContainer>
     </Container>
-
   )
 }
-
 export default ContainerLayout
