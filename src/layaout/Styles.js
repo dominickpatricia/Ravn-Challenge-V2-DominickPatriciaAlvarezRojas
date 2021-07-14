@@ -57,7 +57,7 @@ const CustomSpanTitle= styled.span`
 `;
 const NavbarStyled=styled.div`
   position: absolute;
-  width: 1440px;
+  width: 1500px;
   height: 52px;
   left: 0px;
   top: 0px;

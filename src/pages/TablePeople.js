@@ -14,15 +14,16 @@ const ImgStyled=styled.img`
 
 export const TablePeople = ({ onPeopleSelected }) =>  {
     const { loading, error, data } = useQuery(GET_PEOPLE);
-    if (loading) return <Loader/>;
+    if (loading) return <h1> {data} </h1> ;//<Loader/>;
     if (error) return (
     <Grid container direction="row" justify="flex-start" >
         <Grid item xs={12} style={{ height:"60px",display:"flex", alignItems:"center",justifyContent:"center"}} >
             <CustomSpanFailed> Failed to load data</CustomSpanFailed>
         </Grid>
     </Grid>); 
-
+    let indexPerson = 5;
     return (
+        
         (data?.allPeople?.people).map((person,index) =>(
             <Grid container direction="row" justify="flex-start">
                 <Grid item xs={11}  >
@@ -33,6 +34,7 @@ export const TablePeople = ({ onPeopleSelected }) =>  {
                 </Grid>
             </Grid>
         ))
+        
     );
 }
 export default TablePeople;

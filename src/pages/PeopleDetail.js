@@ -77,11 +77,22 @@ function PersonalInformation({ id }) {
           <Grid item xs={12} style={{ height:"60px", paddingTop:"32px"}} >
             <CustomSpan>Vechicles</CustomSpan>
           </Grid>
-          {data.person.vehicleConnection.edges.map((vehicle,index) => (
-            <Grid item xs={8} style={{ height:"49px", display:"flex", alignItems:"center"}} >
+          {data.person.vehicleConnection.edges.length>0?
+            data.person.vehicleConnection.edges.map((vehicle,index) => (
+              <Grid container direction="row" justify="flex-start" >
+            <Grid item xs={12} style={{ height:"49px", display:"flex", alignItems:"center"}} >
               <CustomSpanLight  > {vehicle.node.name}</CustomSpanLight>
             </Grid>
-          ))}
+            <Grid item xs={12}  >
+              <Divider/>
+            </Grid>
+            </Grid>
+          ))
+          :
+             <Grid item xs={8} style={{ height:"49px", display:"flex", alignItems:"center"}} >
+              <CustomSpanLight  >There's not vehicle</CustomSpanLight>
+            </Grid>
+          }
       </Grid>
   );
 }
