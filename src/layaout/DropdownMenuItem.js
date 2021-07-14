@@ -2,34 +2,57 @@ import React from "react";
 import styled from "styled-components";
 import {NavLink} from "react-router-dom";
 import {Divider} from "@material-ui/core";
-const MenuItemSpan = styled.span`
-    display: block;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    padding-left: 1.5rem;
-    color: ${(props => props.theme.palette.principal)};
-    //text-decoration: none;
-    background: transparent;
-    font-size: 1.1rem;
-    transition: color 100ms linear;
-    font-family: ${(props) => props.theme.typography.fontFamily.nunito};
-    font-weight: 500;
-    letter-spacing: 1px;
-    border-right-color: black;
-  
-    &:hover{
-      color: ${(props => props.theme.palette.secundario)};
-    }
+import NextIcon from "../icons/next.png";
+const MenuTitleSpan = styled.span`
+  //position: absolute;
+  position: absolute;
+  left:14.93px;
+  padding-bottom: 20px;
 `
-
-const DropdownMenuItem = ({title, link}) => {
+const MenuSubTitleSpan = styled.span`
+  //position: absolute;
+  position: absolute;
+  left:14.93px;
+  padding-top: 18px;
+  font-size: 14px !important;
+  color: #828282 !important;
+  line-height: 17px !important;
+  font-weight: normal !important;
+`
+const ImgStyled=styled.img`
+  height: 12px;
+  //width: 7.41px;
+  //position: absolute;
+  padding-left: 318px;
+  padding-top: 6px;
+`;
+const ContainerItem = styled.div`
+  height:69px;
+ //top: 16px;
+  bottom: 0%;
+/* Header */
+  font-family: ${(props) => props.theme.typography.fontFamily.Helvetica};
+  //font-family: SF Pro Display;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 17px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.0125em;
+  /* Text/Dark */
+  color: #333333;
+`;
+const DropdownMenuItem = ({title, link, subtitle}) => {
   return (
     <li style={{listStyle:"none"}}>
       <NavLink to={link} activeClassName="myActiveLink" style={{textDecoration:"none"}}>
-        <div>
-          <MenuItemSpan>{title}</MenuItemSpan>
-          <Divider/>
-        </div>
+        <ContainerItem>
+          <MenuTitleSpan>{title}</MenuTitleSpan>
+          <MenuSubTitleSpan>Human from {subtitle}</MenuSubTitleSpan>
+          <ImgStyled src={NextIcon}/>
+        </ContainerItem>
+        <Divider/>
       </NavLink>
     </li>
   )

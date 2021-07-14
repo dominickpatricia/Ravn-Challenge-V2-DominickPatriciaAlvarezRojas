@@ -3,10 +3,10 @@ import styled from "styled-components";
 
 
 const Container=styled.div`
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  overflow: auto;
+  position: absolute;
+    left: 450px;
+    top: 52px;
+    //width:600px;
 `;
 
 const ContentContainer=styled.div`
@@ -28,8 +28,8 @@ const ContentContainer=styled.div`
     //background: ${(props) => props.theme.palette.secundario};
   }*/
   //padding: 0px 50px 35px 50px;
-  padding-left: 50px;
-  height: calc(91vh - 70px - 35px);
+  //padding-left: 50px;
+ // height: calc(91vh - 70px - 35px);
   overflow: auto;
 `;
 

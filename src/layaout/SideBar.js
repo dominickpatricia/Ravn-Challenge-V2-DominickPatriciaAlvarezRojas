@@ -9,10 +9,13 @@ import {
 } from "@apollo/client";
 
 const SidebarContainer=styled.div`
-  background: ${(props) => props.theme.palette.claro};
-  padding: 20px;
-  min-width: 280px;
-  max-width: 280px;
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 52px;
+  bottom: 0%;
+  background: #FFFFFF;
+  width: 350px;
 `;
 
 const client = new ApolloClient({

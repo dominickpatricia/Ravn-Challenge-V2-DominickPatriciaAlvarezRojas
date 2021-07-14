@@ -19,26 +19,46 @@ const client = new ApolloClient({
 });
 
 const GET_PEOPLE_BY_ID = gql`
-  query person($id: ID){person(id:$id){name eyeColor hairColor skinColor birthYear height mass gender  homeworld {
-    name
-    gravity
-  }}}
+  query person($id: ID){person(id:$id){name eyeColor hairColor skinColor birthYear height mass gender  }}
 `;
 const CustomSpan=styled.span`
   font-family: ${(props) => props.theme.typography.fontFamily.Helvetica};
-  font-size: 20px;
-  font-weight: bolder;
+  //font-family: SF Pro Display;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 17px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  text-align: right;
+  letter-spacing: 0.0125em;
+  color: #333333;
 `;
 const CustomSpanSubtitle=styled.span`
   font-family: ${(props) => props.theme.typography.fontFamily.Helvetica};
-  font-size: 28px;
-  font-weight: bolder;
-  color: rgb(120,137,205);
+  font-family: SF Pro Display;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 17px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.0125em;
+/* Text/Light */
+  color: #828282;
 `;
 const CustomSpanInformation=styled.span`
   font-family: ${(props) => props.theme.typography.fontFamily.Helvetica};
-  font-size: 20px;
-  font-weight: lighter;
+  //font-family: SF Pro Display;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 17px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.0125em;
+/* Text/Light */
+  color: #828282;
 `;
 const IconCustom=styled.img`
   max-height: 35px;
@@ -63,85 +83,51 @@ function PersonalInformation({ id }) {
   return (
  
       <Grid container direction="row" justify="flex-start" >
-          <Grid item xs={6} style={{ paddingLeft:"5%" ,marginTop:"3%", display:"flex"}} >
-            <CustomSpan  >Name:</CustomSpan>
+          <Grid item xs={12} style={{ height:"60px", paddingTop:"32px"}} >
+            <CustomSpan>General Information</CustomSpan>
           </Grid>
-          <Grid item xs={6}></Grid>
-          <Grid item xs={12} style={{paddingLeft:"5%",display:"flex"}} >
-            <CustomSpanInformation> 
-              {data.person.name} 
-            </CustomSpanInformation> 
+          <Grid item xs={8} style={{ height:"49px", display:"flex", alignItems:"center"}} >
+            <CustomSpanInformation  >Eye Color:</CustomSpanInformation>
           </Grid>
-          <Grid item xs={12} style={{marginTop: "1%"}} >
+          <Grid item xs={4} style={{ height:"49px", display:"flex",justifyContent:"flex-end", alignItems:"center"}}>
+            <CustomSpan> 
+            {data.person.eyeColor}
+            </CustomSpan>
+          </Grid>
+          <Grid item xs={12}  >
             <Divider/>
           </Grid>
-          <Grid item xs={6} style={{ paddingLeft:"5%" ,marginTop:"3%",  display:"flex"}} >
-            <CustomSpan  >Gender:</CustomSpan>
+          <Grid item xs={8} style={{ height:"49px", display:"flex", alignItems:"center"}}>
+            <CustomSpanInformation  >Hair Color:</CustomSpanInformation>
           </Grid>
-          <Grid item xs={6}></Grid>
-          <Grid item xs={12}  style={{paddingLeft:"5%", display:"flex"}} >
-            <CustomSpanInformation> 
-              {data.person.gender} 
-            </CustomSpanInformation> 
+          <Grid item xs={4} style={{ height:"49px", display:"flex", justifyContent:"flex-end",alignItems:"center"}}>
+            <CustomSpan> 
+              {data.person.hairColor}
+            </CustomSpan>
           </Grid>
-          <Grid item xs={12} style={{marginTop: "1%"}} >
+          <Grid item xs={12}  >
             <Divider/>
           </Grid>
-          <Grid item xs={12} style={{  marginTop:"3%",  display:"flex"}} >
-            <CustomSpan style={{ paddingLeft:"5%"}} >HomeWorld:</CustomSpan>
-            <CustomSpan style={{ paddingLeft:"22%"}} >Gravity:</CustomSpan>
+          <Grid item xs={8} style={{ height:"49px", display:"flex", alignItems:"center"}} >
+            <CustomSpanInformation  >Skin Color:</CustomSpanInformation>
           </Grid>
-
-          <Grid item xs={12}  style={{display:"flex"}} >
-            <CustomSpanInformation style={{ paddingLeft:"5%"}} > {data.person.homeworld.name} </CustomSpanInformation>
-            <CustomSpanInformation style={{ paddingLeft:"29%"}} > {data.person.homeworld.gravity} </CustomSpanInformation>
+          <Grid item xs={4} style={{ height:"49px", display:"flex",justifyContent:"flex-end", alignItems:"center"}}>
+            <CustomSpan> 
+              {data.person.skinColor}
+            </CustomSpan>
           </Grid>
-
-          <Grid item xs={12} style={{marginTop: "1%"}} >
+          <Grid item xs={12}  >
             <Divider/>
           </Grid>
-          <Grid item xs={12} style={{  marginTop:"3%",  display:"flex"}} >
-            <CustomSpan style={{ paddingLeft:"5%"}} >Height :</CustomSpan>
-            <CustomSpan style={{ paddingLeft:"27%"}} >Mass:</CustomSpan>
+          <Grid item xs={8} style={{ height:"49px", display:"flex", alignItems:"center"}} >
+            <CustomSpanInformation  >Birth Year:</CustomSpanInformation>
           </Grid>
-
-          <Grid item xs={12}  style={{display:"flex"}} >
-            <CustomSpanInformation style={{ paddingLeft:"5%"}} > {data.person.height} </CustomSpanInformation>
-            <CustomSpanInformation style={{ paddingLeft:"34%"}} > {data.person.mass} </CustomSpanInformation>
+          <Grid item xs={4} style={{ height:"49px", display:"flex", justifyContent:"flex-end",alignItems:"center"}}>
+            <CustomSpan> 
+              {data.person.birthYear}
+            </CustomSpan>
           </Grid>
-
-          <Grid item xs={12} style={{marginTop: "1%"}} >
-            <Divider/>
-          </Grid>
-
-          <Grid item xs={12} style={{  marginTop:"3%",  display:"flex"}} >
-            <CustomSpan style={{ paddingLeft:"5%"}} >EyeColor:</CustomSpan>
-            <CustomSpan style={{ paddingLeft:"25%"}} >HairColor:</CustomSpan>
-            <CustomSpan  style={{ paddingLeft:"25%"}}  >SkinColor:</CustomSpan>
-          </Grid>
-
-          <Grid item xs={12}  style={{ display:"flex"}} >
-            <CustomSpanInformation style={{ paddingLeft:"5%"}} > {data.person.eyeColor} </CustomSpanInformation>
-            <CustomSpanInformation style={{ paddingLeft:"32%"}} > {data.person.hairColor} </CustomSpanInformation>
-            <CustomSpanInformation  style={{ paddingLeft:"31%"}} > {data.person.skinColor} </CustomSpanInformation>
-          </Grid>
-
-          <Grid item xs={12} style={{marginTop: "1%"}} >
-            <Divider/>
-          </Grid>
-          <Grid item xs={6} style={{ paddingLeft:"5%" ,marginTop:"3%",  display:"flex"}} >
-            <CustomSpan  >Birth Year:</CustomSpan>
-          </Grid>
-          <Grid item xs={6}></Grid>
-          <Grid item xs={12}  style={{paddingLeft:"5%", display:"flex"}} >
-            <CustomSpanInformation> 
-              {data.person.birthYear} 
-            </CustomSpanInformation> 
-          </Grid>
-          <Grid item xs={12} style={{marginTop: "1%"}} >
-            <Divider/>
-          </Grid>
-          <Grid item xs={12} style={{}} >
+          <Grid item xs={12}  >
             <Divider/>
           </Grid>
       </Grid>
