@@ -14,6 +14,14 @@ Finally, your pc will deploy the app at [http://localhost:3000]. Perhaps, it wil
 
 ## Let's take a look!
 
+See an error message when data can't load:
+
+![image](https://user-images.githubusercontent.com/64397207/126894588-682f19ab-6cda-4f00-9a73-77f466c5a3d7.png)
+
+See a loader spinner when data is loading:
+
+![image](https://user-images.githubusercontent.com/64397207/126894641-452bb9a6-1a74-4cd2-b62a-3fd7620ee957.png)
+
 See a list of people in star wars:
 
 ![image](https://user-images.githubusercontent.com/64397207/125600288-2c295d61-529a-44c6-8e4b-3dc686a1a613.png)
