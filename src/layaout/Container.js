@@ -7,6 +7,7 @@ const Container=styled.div`
     top: 52px;
     width:890px;
 `;
+
 const ContentContainer=styled.div`
   overflow: auto;
   width:890px;
@@ -22,4 +23,5 @@ const ContainerLayout=({text,children})=>{
     </Container>
   )
 }
+
 export default ContainerLayout

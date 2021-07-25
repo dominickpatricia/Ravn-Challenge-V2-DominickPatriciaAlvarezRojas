@@ -13,7 +13,7 @@ export const PeopleLoading = () => {
     <React.Fragment>
       <ListContainer>
         <ApolloProvider client={Client}>
-          <TablePeople onPeopleSelected={onPeopleSelected}/>
+           <TablePeople onPeopleSelected={onPeopleSelected}/> 
         </ApolloProvider>
       </ListContainer>
     </React.Fragment>

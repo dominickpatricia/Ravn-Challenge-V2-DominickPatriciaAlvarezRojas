@@ -1,30 +1,15 @@
 import React from "react";
-import {Route, Switch} from "react-router-dom";
 import PeopleDetail from "../pages/PeopleDetail";
-import {Grid} from "@material-ui/core";
 import Navbar from "../layaout/Navbar";
 import Sidebar from "../layaout/SideBar";
 import styled from "styled-components";
+import {Grid} from "@material-ui/core";
+import {Route, Switch} from "react-router-dom";
 
 const AdminRouter=()=>{
+  
   const parentPath='/admin'
-  const ContainerView=styled.div`
-  //overflow: auto;
-  //width:890px;
 
-  ::-webkit-scrollbar {
-    width: 10px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: ${(props) => props.theme.palette.claro};
-  }
-
-  ::-webkit-scrollbar-thumb {
-    border-radius: 7px;
-    background: ${(props) => props.theme.palette.complementario};
-  }
-`;
   return(
     <React.Fragment>
         <Navbar/>

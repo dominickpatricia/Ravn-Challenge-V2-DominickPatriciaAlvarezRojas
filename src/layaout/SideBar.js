@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import PeopleLoading from "../pages/PeopleLoading";
+
 const SidebarContainer=styled.div`
   position: absolute;
   left: 0%;
@@ -11,6 +12,7 @@ const SidebarContainer=styled.div`
   width: 350px;
   border-right: inset 1px;
 `;
+
 const Sidebar =()=>{
   return(
     <SidebarContainer>
@@ -18,4 +20,5 @@ const Sidebar =()=>{
     </SidebarContainer>
   )
 }
+
 export default Sidebar;

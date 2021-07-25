@@ -8,4 +8,5 @@ const Navbar =()=>{
     </NavbarStyled>
   )
 }
+
 export default Navbar;

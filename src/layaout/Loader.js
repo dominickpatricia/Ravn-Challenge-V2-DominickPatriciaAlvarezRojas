@@ -1,12 +1,12 @@
-import styled from "styled-components";
-import {CircularProgress} from "@material-ui/core";
-import {CustomSpanLight} from "../layaout/Styles"
 import React from "react";
+import styled from "styled-components";
+import {CustomSpanLight} from "../layaout/Styles"
+import {Ripple} from "../layaout/Ripple";
 
 const LoaderContainer=styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 200px;
+  margin-top: 10px;
   .MuiCircularProgress-colorPrimary{
     color: ${props => props.theme.palette.principal};
   } 
@@ -15,8 +15,8 @@ const LoaderContainer=styled.div`
 const Loader=()=>{
   return(
     <LoaderContainer>
-      <CircularProgress/> 
-      <CustomSpanLight>Loading </CustomSpanLight>
+      <Ripple />  
+      <CustomSpanLight style={{paddingLeft:"8px"}}>Loading </CustomSpanLight>
     </LoaderContainer>
   )
 }
